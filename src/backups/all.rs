@@ -78,6 +78,7 @@ pub fn run_with_paths(
     for path in paths {
         if !Path::new(path).exists() {
             writeln!(log, "[!] {} does not exist, skipping", path)?;
+            eprintln!("[!] {} does not exist, skipping", path);
             skipped += 1;
             continue;
         }
@@ -93,6 +94,7 @@ pub fn run_with_paths(
 
         if output.status.success() {
             writeln!(log, "[+] Backed up {}", path)?;
+            println!("[+] Backed up {}", path);
             copied += 1;
         } else {
             // A single unreadable path should not abort the whole backup.
@@ -103,7 +105,7 @@ pub fn run_with_paths(
                 String::from_utf8_lossy(&output.stderr).trim()
             )?;
             eprintln!(
-                "[!] Failed to back up {} (see {})",
+                "[X] Failed to back up {} (see {})",
                 path,
                 log_path.display()
             );
