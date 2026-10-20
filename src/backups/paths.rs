@@ -33,33 +33,16 @@ pub const ALL_PATHS: &[&str] = concat!(
 );
 
 /// A combined list of typical system config files and directories
-pub const SYSTEM_PATHS: &[&str] = concat!(
-    SSH,
-    DNS_HOSTS,
-    CRON,
-    PAM
-);
+pub const SYSTEM_PATHS: &[&str] = concat!(SSH, DNS_HOSTS, CRON, PAM);
 
 /// A combined list of typical service & system configuration files for an ecomm server
-pub const ECOMM_PATHS: &[&str] = concat!(
-        SYSTEM_PATHS,
-        APACHE_HTTPD,
-        NGINX,
-        OPENCART
-);
+pub const ECOMM_PATHS: &[&str] = concat!(SYSTEM_PATHS, APACHE_HTTPD, NGINX, OPENCART);
 
 /// A combined list of typical service & system configuration files for a mail server
-pub const MAIL_PATHS: &[&str] = concat!(
-    SYSTEM_PATHS,
-    POSTFIX,
-    DOVECOT
-);
+pub const MAIL_PATHS: &[&str] = concat!(SYSTEM_PATHS, POSTFIX, DOVECOT);
 
 /// A combined list of typical service & system configuration files for a splunk server
-pub const SPLUNK_PATHS: &[&str] = concat!(
-    SYSTEM_PATHS,
-    SPLUNK
-);
+pub const SPLUNK_PATHS: &[&str] = concat!(SYSTEM_PATHS, SPLUNK);
 
 /// SSH config files and keys
 pub const SSH: &[&str] = &[
@@ -71,23 +54,13 @@ pub const SSH: &[&str] = &[
 ];
 
 /// DNS configuration and fixed hostnames
-pub const DNS_HOSTS: &[&str] = &[
-    "/etc/hostname",
-    "/etc/hosts",
-    "/etc/resolv.conf",
-];
+pub const DNS_HOSTS: &[&str] = &["/etc/hostname", "/etc/hosts", "/etc/resolv.conf"];
 
 /// System and user crontabs
-pub const CRON: &[&str] = &[
-    "/etc/crontab",
-    "/var/spool/cron/crontabs/",
-];
+pub const CRON: &[&str] = &["/etc/crontab", "/var/spool/cron/crontabs/"];
 
 /// PAM configuration and directory
-pub const PAM: &[&str] = &[
-    "/etc/pam.conf",
-    "/etc/pam.d",
-];
+pub const PAM: &[&str] = &["/etc/pam.conf", "/etc/pam.d"];
 
 /// Apache/httpd configurations and directories
 pub const APACHE_HTTPD: &[&str] = &[
@@ -124,16 +97,10 @@ pub const OPENCART: &[&str] = &[
 ];
 
 /// Postfix config files and directories
-pub const POSTFIX: &[&str] = &[
-    "/etc/postfix",
-    "/etc/aliases",
-];
+pub const POSTFIX: &[&str] = &["/etc/postfix", "/etc/aliases"];
 
 /// Dovecot config files and directories
-pub const DOVECOT: &[&str] = &[
-    "/etc/dovecot",
-    "/etc/dovecot/conf.d",
-];
+pub const DOVECOT: &[&str] = &["/etc/dovecot", "/etc/dovecot/conf.d"];
 
 /// Splunk service configuration and directories
 pub const SPLUNK: &[&str] = &[
