@@ -3,10 +3,14 @@
 //! Not yet implemented. The paths this would cover are currently swept up by
 //! [`super::all`], which backs up every known config path in one pass.
 
-use crate::core::{DefenderContext, Result};
+use super::paths::MAIL_PATHS;
+use crate::{
+    backups::all::run_with_paths,
+    core::{DefenderContext, Result},
+};
+use std::path::PathBuf;
 
-/// Placeholder until this backup is implemented.
-pub fn run(_ctx: &DefenderContext) -> Result {
-    println!("[!] Not implemented");
-    Ok(())
+/// Back up every known config path in [`super::paths::MAIL_PATHS`].
+pub fn run(ctx: &DefenderContext, save_location: &Option<PathBuf>) -> Result {
+    run_with_paths(ctx, save_location, MAIL_PATHS)
 }

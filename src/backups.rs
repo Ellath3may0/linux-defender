@@ -78,11 +78,11 @@ pub fn run(ctx: &DefenderContext, args: &CliArgs) -> Result {
     }
     if args.ecomm {
         println!("[+] Backing up ecomm service");
-        ecomm::run(ctx)?;
+        ecomm::run(ctx, &args.save_location)?;
     }
     if args.mail {
         println!("[+] Backing up mail service");
-        mail::run(ctx)?;
+        mail::run(ctx, &args.save_location)?;
     }
     if args.restore {
         println!("[+] Restoring from backup");
@@ -90,7 +90,7 @@ pub fn run(ctx: &DefenderContext, args: &CliArgs) -> Result {
     }
     if args.splunk {
         println!("[+] Backing up splunk service");
-        splunk::run(ctx)?;
+        splunk::run(ctx, &args.save_location)?;
     }
     if args.users {
         println!("[+] Backing up user databases");

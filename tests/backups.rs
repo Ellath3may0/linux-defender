@@ -17,15 +17,12 @@ mod hash;
 
 use tempfile::TempDir;
 
-use common::{run_cli, stdout};
+use common::{run_cli, stdout, stderr};
 
 /// Backup kinds that are not implemented yet; they must still route correctly.
 const STUB_KINDS: &[(&str, &str)] = &[
     ("--custom", "custom service"),
-    ("--ecomm", "ecomm service"),
-    ("--mail", "mail service"),
     ("--restore", "Restoring from backup"),
-    ("--splunk", "splunk service"),
     ("--users", "user databases"),
 ];
 
@@ -52,6 +49,14 @@ fn several_backup_kinds_can_run_in_one_invocation() {
     let out = run_cli(dir.path(), &["backups", "--mail", "--splunk"]);
 
     assert!(out.status.success());
-    assert!(stdout(&out).contains("mail service"));
-    assert!(stdout(&out).contains("splunk service"));
+    assert!(
+        stdout(&out).contains("[+] Backed up /etc/postfix") ||
+        stderr(&out).contains("[X] Failed to back up /etc/postfix") ||
+        stderr(&out).contains("[!] /etc/postfix does not exist, skipping")
+    );
+    assert!(
+        stdout(&out).contains("[+] Backed up /opt/splunk/") ||
+        stderr(&out).contains("[X] Failed to back up /opt/splunk/") ||
+        stderr(&out).contains("[!] /opt/splunk/ does not exist, skipping")
+    );
 }
