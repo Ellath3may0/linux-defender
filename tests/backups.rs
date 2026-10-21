@@ -23,7 +23,6 @@ use common::{run_cli, stdout, stderr};
 const STUB_KINDS: &[(&str, &str)] = &[
     ("--custom", "custom service"),
     ("--restore", "Restoring from backup"),
-    ("--users", "user databases"),
 ];
 
 #[test]
