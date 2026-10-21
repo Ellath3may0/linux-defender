@@ -94,7 +94,7 @@ pub fn run(ctx: &DefenderContext, args: &CliArgs) -> Result {
     }
     if args.users {
         println!("[+] Backing up user databases");
-        users::run(ctx)?;
+        users::run(ctx, &args.save_location)?;
     }
 
     Ok(())
