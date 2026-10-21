@@ -33,7 +33,7 @@ pub const ALL_PATHS: &[&str] = concat!(
 );
 
 /// A combined list of typical system config files and directories
-pub const SYSTEM_PATHS: &[&str] = concat!(SSH, DNS_HOSTS, CRON, PAM);
+pub const SYSTEM_PATHS: &[&str] = concat!(SSH, DNS_HOSTS, CRON, PAM, USERS);
 
 /// A combined list of typical service & system configuration files for an ecomm server
 pub const ECOMM_PATHS: &[&str] = concat!(SYSTEM_PATHS, APACHE_HTTPD, NGINX, OPENCART);
@@ -61,6 +61,16 @@ pub const CRON: &[&str] = &["/etc/crontab", "/var/spool/cron/crontabs/"];
 
 /// PAM configuration and directory
 pub const PAM: &[&str] = &["/etc/pam.conf", "/etc/pam.d"];
+
+/// User/group database files and directory
+pub const USERS: &[&str] = &[
+    "/etc/passwd",
+    "/etc/shadow",
+    "/etc/group",
+    "/etc/gshadow",
+    "/etc/sudoers",
+    "/etc/sudoers.d/",
+];
 
 /// Apache/httpd configurations and directories
 pub const APACHE_HTTPD: &[&str] = &[
