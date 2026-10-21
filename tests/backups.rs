@@ -46,7 +46,7 @@ fn every_backup_kind_is_wired_to_its_module() {
 #[test]
 fn several_backup_kinds_can_run_in_one_invocation() {
     let dir = TempDir::new().unwrap();
-    let out = run_cli(dir.path(), &["backups", "--mail", "--splunk"]);
+    let out = run_cli(dir.path(), &["backups", "--mail", "--splunk", "--save-location", "~/backup-concurrency-test-dir"]);
 
     assert!(out.status.success());
     assert!(
