@@ -4,10 +4,7 @@
 //! [`super::all`], which backs up every known config path in one pass.
 
 use crate::{
-    backups::{
-        all::run_with_paths,
-        paths::USERS,
-    },
+    backups::{all::run_with_paths, paths::USERS},
     core::{DefenderContext, Result},
 };
 use std::path::PathBuf;
